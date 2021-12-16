@@ -16,6 +16,15 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+// test db connection
+sequelize.authenticate().then(() => {
+  console.log('db connected ');
+}).catch((error) => {
+  console.log('*************************************************************************************************************************************************');
+  console.log(`db ERROR!!!, check your db connection and restart the server: ///   ${error}`);
+  console.log('*************************************************************************************************************************************************');
+});
+
 fs
   .readdirSync(__dirname)
   .filter(file => {

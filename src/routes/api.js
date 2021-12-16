@@ -1,12 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const { searchPoke } = require('../controllers/pokeSearch.controller');
+const { randomPoke } = require('../controllers/pokeRandom.controller');
 
 /* GET users listing. */
-router.get('/randomPoke', (req, res) => {
-  res.send('respond with 3 random pokes');
-});
-router.get('/search', (req, res) => {
-  res.send('respond with 3 searched pokes');
-});
+router.get('/randomPoke', randomPoke);
+router.get('/search', searchPoke);
 
 module.exports = router;
