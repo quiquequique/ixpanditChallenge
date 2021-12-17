@@ -31,7 +31,7 @@ const searchPoke = async (req, res) => {
         };
         res.status(200).send(dataResponce);
       } else {
-        return res.status(404).send({ meta: { found: foundedPokes.length } });
+        return res/* .status(404) */.send({ meta: { found: foundedPokes.length } });
       }
     }
   } catch (error) {
